@@ -7,10 +7,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@AllArgsConstructor  //ref to: https://www.javatpoint.com/lombok-java
 public class AppUserService implements UserDetailsService {
 
-    private final static String USER_NOT_FOUND_MSG = "user with email %s not fund";
+    private final static String USER_NOT_FOUND_MSG = "User %s not fund";
     private final AppUserRepository appUserRepository;
 
     @Override

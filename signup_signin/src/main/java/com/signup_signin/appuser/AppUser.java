@@ -13,10 +13,10 @@ import java.util.Collections;
 
 import javax.persistence.*;
 
-@Getter  //from spring lambok
-@Setter  //from spring lambok
-@EqualsAndHashCode  //from spring lambok
-@NoArgsConstructor  //from spring lambok
+@Getter  //ref to: https://www.javatpoint.com/lombok-java
+@Setter  //ref to: https://www.javatpoint.com/lombok-java
+@EqualsAndHashCode  //ref to: https://www.javatpoint.com/lombok-java
+@NoArgsConstructor  //ref to: https://www.javatpoint.com/lombok-java
 public class AppUser implements UserDetails {
 
     @Id
