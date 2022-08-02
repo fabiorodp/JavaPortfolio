@@ -1,3 +1,6 @@
+// ref: https://www.youtube.com/watch?v=r-6BwGW4Sr8
+// ref: https://www.youtube.com/watch?v=8fbfHu8isI4&t=0s
+
 package com.helloworld.api;
 
 import com.helloworld.model.Person;
@@ -6,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequestMapping("api/v1/person")
 @RestController
@@ -25,5 +29,21 @@ public class PersonController {
     @GetMapping
     public List<Person> getAllPeople() {
         return personService.getAllPeople();
+    }
+
+    @GetMapping(path="{id}")
+    public Person getPersonById(@PathVariable("id") UUID id){
+        return personService.getPersonById(id)
+                .orElse(null);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deletePersonById(@PathVariable("id") UUID id) {
+        personService.deletePerson(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void updatePerson(@PathVariable("id") UUID id, @RequestBody Person personToUpdate){
+        personService.updatePerson(id, personToUpdate);
     }
 }
